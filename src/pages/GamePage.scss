@@ -1,0 +1,27 @@
+.GameContainer {
+    background-color: coral;
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.DiscardContainer {
+    background-color: green;
+    min-width: 100%;
+    flex: 10;
+}
+
+.OpponentContainer {
+    background-color: cyan;
+    min-width: 100%;
+    flex: 1.5;
+}
+
+.HandsContainer {
+    background-color: palevioletred;
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+    flex: 7;
+}
