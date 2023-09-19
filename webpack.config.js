@@ -1,4 +1,5 @@
 const path = require('path');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 require('style-loader');
 require('css-loader');
 
@@ -42,4 +43,7 @@ module.exports = {
             },
 		],
 	},
+	plugins: [
+		new LiveReloadPlugin()
+	]
 };

@@ -2,21 +2,6 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
-//Live Reload dev
-const livereload = require("livereload");
-const connectLiveReload = require("connect-livereload");
-
-//Livereload code
-const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(path.join(__dirname, "dist"));
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => {
-    liveReloadServer.refresh("/");
-  }, 200);
-});
-app.use(connectLiveReload());
-
-
 const PORT = 8000;
 
 //webpack

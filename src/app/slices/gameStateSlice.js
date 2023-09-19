@@ -3,7 +3,7 @@ import Tiles from '../enums/TilesEnum.js';
 
 const initialState = {
 	Hand: [
-		Tiles.DragonCrack,
+		Tiles.ThreeBam,
 		Tiles.DragonDot,
 		Tiles.Joker,
 		Tiles.NineBam,
