@@ -1,0 +1,9 @@
+@import '../../masterPalette';
+
+.Hand {
+    padding: 0px 20px 0px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}

@@ -1,0 +1,28 @@
+@import '../../masterPalette';
+
+.DiscardContainer {
+    background-color: $bg1;
+    flex: 100;
+}
+
+.OpponentContainer {
+    background-color: $bg0;
+    flex: 10;
+}
+
+.PlayContainer {
+    background-color: $bg2;
+    display: flex;
+    flex-direction: row;
+    flex: 40
+}
+
+.CardContainer {
+    background-color: $bg1;
+    flex: 5;
+}
+
+.HandContainer {
+    background-color: $bg2;
+    flex: 20;
+}

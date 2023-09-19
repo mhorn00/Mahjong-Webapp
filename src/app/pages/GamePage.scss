@@ -1,0 +1,19 @@
+@import '../masterPalette';
+
+.RootContainer {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.TopBar {
+    background-color: $bg0;
+    flex: 1;
+}
+
+.GameContainer {
+    flex: 500;
+    display: flex;
+    flex-direction: column;
+}
