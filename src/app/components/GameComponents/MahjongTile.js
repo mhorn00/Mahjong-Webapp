@@ -8,7 +8,8 @@ const TileColCount = 9;
 const TileRowCount = 5;
 
 
-const MahjongTile = function ({Tile, ScaleFactor}) {
+const MahjongTile = function ({Tile, WidthPercent}) {
+	const ScaleFactor = " ";
 	const tileStyle = {
 		backgroundImage: `url(${TileSheet})`,
 		backgroundPosition: `-${Tile.Index.x * TileImageWidth/ScaleFactor}px -${Tile.Index.y * TileImageHeight/ScaleFactor}px`,
@@ -19,9 +20,7 @@ const MahjongTile = function ({Tile, ScaleFactor}) {
 		padding: '10 px',
 	};
 
-	return (
-		<div style={tileStyle}/>
-	);
+	return <div style={tileStyle}/>;
 };
 
 export default MahjongTile;
