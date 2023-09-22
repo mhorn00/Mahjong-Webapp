@@ -8,8 +8,8 @@
 # testing
 /coverage
 
-#ignore bundle.js and any varianets of it in ./dist
-/dist/bundle.js*
+#ignore everything in dist except index.html
+/dist/*
 
 # misc
 .DS_Store

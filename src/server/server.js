@@ -4,26 +4,38 @@ const app = express();
 
 const PORT = 8000;
 
-//webpack
+//webpack middleware
 const webpack = require('webpack');
 const webpackConfig = require('../../webpack.config.js');
 const compiler = webpack(webpackConfig);
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-
-app.use(
-	webpackDevMiddleware(compiler, {
-		publicPath: webpackConfig.output.publicPath,
-	}),
-    webpackHotMiddleware(compiler)
-);
-
-
-//serve react app for any other path
-app.get('/*', function (req, res) {
-	res.sendFile(path.resolve(__dirname, '../../dist/index.html'));
+const webpackDevInstance = webpackDevMiddleware(compiler, {
+	publicPath: webpackConfig.output.publicPath,
+	writeToDisk: true,
 });
 
-app.listen(PORT, function () {
-	console.log('Server Started');
+app.use(webpackDevInstance, webpackHotMiddleware(compiler));
+
+webpackDevInstance.waitUntilValid(() => {
+	console.log('Webpack Done');
+	const distPath = path.resolve(__dirname, '../../dist');
+	const distAssetsPath = path.resolve(__dirname, '../../dist/assets');
+	const distIndexPath = path.resolve(__dirname, '../../dist/index.html');
+
+	app.use(express.static(distPath));
+	app.use('/assets', express.static(distAssetsPath));
+
+	app.get('/api', function (req, res) {
+		res.send('Hello World!');
+	});
+
+	//serve react app for any other path
+	app.get('/*', function (req, res) {
+		res.sendFile(distIndexPath);
+	});
+
+	app.listen(PORT, function () {
+		console.log('Server Started');
+	});
 });

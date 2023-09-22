@@ -7,16 +7,11 @@ module.exports = {
 	mode: 'development',
 	entry: './src/app/index.js', //entry point
 	output: {
+		publicPath: path.resolve(__dirname, 'dist/assets'),
 		path: path.resolve(__dirname, 'dist'), //output path
 		filename: 'bundle.js', //output file name
 	},
 	target: 'web',
-	devServer: {
-		port: 8000,
-		open: true,
-		hot: true,
-		liveReload: true,
-	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.json'],
 	},
@@ -25,25 +20,22 @@ module.exports = {
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
-				use: [
-					'babel-loader',
-				],
+				use: ['babel-loader'],
 			},
 			{
 				test: /\.s[ac]ss$/i,
-				use: [
-					'style-loader',
-					'css-loader',
-					'sass-loader',
-				],
+				use: ['style-loader', 'css-loader', 'sass-loader'],
 			},
-            {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
-            },
+			{
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				type: 'asset/resource',
+				generator: {
+					publicPath: 'assets/',
+					outputPath: 'assets/',
+					filename: '[hash][ext][query]',
+				},
+			},
 		],
 	},
-	plugins: [
-		new LiveReloadPlugin()
-	]
+	plugins: [new LiveReloadPlugin()],
 };

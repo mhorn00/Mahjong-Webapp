@@ -26,8 +26,7 @@ module.exports = {
 		'sourceType': 'module'
 	},
 	'plugins': [
-		'react',
-		'prettier'
+		'react'
 	],
 	'rules': {
 		'indent': [
@@ -45,6 +44,9 @@ module.exports = {
 		'semi': [
 			'error',
 			'always'
-		]
+		],
+		'no-unused-vars': [
+			'warn'
+		],
 	}
 };
