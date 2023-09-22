@@ -8,8 +8,8 @@
 # testing
 /coverage
 
-# production
-/build
+#ignore bundle.js and any varianets of it in ./dist
+/dist/bundle.js*
 
 # misc
 .DS_Store
