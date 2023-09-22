@@ -7,9 +7,9 @@ const TileImageHeight = 392;
 const TileColCount = 9;
 const TileRowCount = 5;
 
-
-const MahjongTile = function ({Tile, WidthPercent}) {
-	const ScaleFactor = " ";
+//add drag and drop to this component.
+const MahjongTile = function ({Tile, width}) {
+	const ScaleFactor = TileImageWidth/width;
 	const tileStyle = {
 		backgroundImage: `url(${TileSheet})`,
 		backgroundPosition: `-${Tile.Index.x * TileImageWidth/ScaleFactor}px -${Tile.Index.y * TileImageHeight/ScaleFactor}px`,

@@ -1,10 +1,11 @@
 import React from 'react';
+import {PanelResizeHandle} from 'react-resizable-panels';
 
 const OpponentDisplay = function ({className}) {
 	return (
-		<div className={className}>
-			
-		</div>
+		<PanelResizeHandle className={className}>
+			<div></div>
+		</PanelResizeHandle>
 	);
 };
 

@@ -1,28 +1,56 @@
 @import '../../masterPalette';
 
+.DiscardOpponentPanel {
+	display: flex;
+  flex-direction: column;
+}
+
+.DiscardOpponentPanelContent {
+	display: flex;
+	flex-direction: column;
+	flex: 60;
+}
+
 .DiscardContainer {
-    background-color: $bg1;
-    flex: 100;
+	height: 50vh;
+	background-color: $bg1;
+	flex: 100;
 }
 
 .OpponentContainer {
-    background-color: $bg0;
-    flex: 10;
+	background-color: $bg0;
+	height: 70px;
 }
 
 .PlayContainer {
-    background-color: $bg2;
-    display: flex;
-    flex-direction: row;
-    flex: 40
+	background-color: $bg2;
+	height: 50vh;
+	display: flex;
+	flex-direction: row;
+	flex: 40;
 }
 
 .CardContainer {
-    background-color: $bg1;
-    flex: 5;
+	background-color: $bg1;
+	flex: 5;
 }
 
 .HandContainer {
-    background-color: $bg2;
-    flex: 20;
+	background-color: $bg2;
+	flex: 20;
 }
+
+
+.ResizeHandleOuter {
+	flex: 0 0 0.5em;
+	position: relative;
+	outline: none;
+  background: linear-gradient(
+    to right,
+    $bg1 0%,
+    $bg1 50%,
+    $bg2 50%,
+    $bg2 100%
+  );
+}
+
