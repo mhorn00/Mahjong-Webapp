@@ -13,6 +13,6 @@
 	"requirePragma": false,
 	"insertPragma": false,
 	"proseWrap": "preserve",
-    "endOfLine": "lf",
-    "singleAttributePerLine": false
+	"endOfLine": "lf",
+	"singleAttributePerLine": false
 }

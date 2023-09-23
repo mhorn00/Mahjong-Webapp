@@ -1,5 +1,6 @@
 import React, {useRef, useState} from 'react';
-import './GameContainer.scss';
+import PropTypes from 'prop-types';
+import './Styles/GameContainer.scss';
 import HandDisplay from './HandDisplay.js';
 import CardArea from './CardArea.js';
 import OpponentDisplay from './OpponentDisplay.js';
@@ -16,7 +17,7 @@ const GameContainer = function ({className}) {
 				<OpponentDisplay className='OpponentContainer' />
 				<Panel className='PlayContainer' defaultSize={40}>
 					<PanelGroup autoSaveId='PlayGroup' direction='horizontal'>
-						<Panel className='CardContainer' defaultSize={20} >
+						<Panel className='CardContainer' defaultSize={20}>
 							<CardArea className='CardContainer' />
 						</Panel>
 						<ResizeHandle />
@@ -30,12 +31,18 @@ const GameContainer = function ({className}) {
 	);
 };
 
-const ResizeHandle = function ({className, id}) {
+const ResizeHandle = function ({className}) {
 	return (
-		<PanelResizeHandle className={['ResizeHandleOuter', className].join(' ')} id={id}>
+		<PanelResizeHandle className={['ResizeHandleOuter', className].join(' ')}>
 			<div className='ResizeHandleInner'></div>
 		</PanelResizeHandle>
 	);
 };
 
+GameContainer.propTypes = {
+	className: PropTypes.string,
+};
+ResizeHandle.propTypes = {
+	className: PropTypes.string,
+};
 export default GameContainer;

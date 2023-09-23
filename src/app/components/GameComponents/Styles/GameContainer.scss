@@ -1,8 +1,8 @@
-@import '../../masterPalette';
+@import '../../../masterPalette';
 
 .DiscardOpponentPanel {
 	display: flex;
-  flex-direction: column;
+	flex-direction: column;
 }
 
 .DiscardOpponentPanelContent {
@@ -38,19 +38,12 @@
 .HandContainer {
 	background-color: $bg2;
 	flex: 20;
+	height: 100%;
 }
-
 
 .ResizeHandleOuter {
 	flex: 0 0 0.5em;
 	position: relative;
 	outline: none;
-  background: linear-gradient(
-    to right,
-    $bg1 0%,
-    $bg1 50%,
-    $bg2 50%,
-    $bg2 100%
-  );
+	background: linear-gradient(to right, $bg1 0%, $bg1 50%, $bg2 50%, $bg2 100%);
 }
-

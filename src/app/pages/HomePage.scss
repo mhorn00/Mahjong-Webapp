@@ -1,0 +1,40 @@
+@import '../masterPalette';
+
+.RootContainer {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+}
+
+.TopBar {
+	background-color: $bg0;
+	flex: 1;
+}
+
+.HomeContainer {
+	flex: 500;
+	display: flex;
+	flex-direction: column;
+}
+
+.form {
+	width: 50%;
+	height: 20%;
+    margin: 100px;
+}
+
+.button {
+	background-color: $bg0;
+	color: $ac0;
+	border: 1px solid $ac1;
+	border-radius: 5px;
+	padding: 50px;
+	margin: 5px;
+	&:hover {
+		background-color: $bg1;
+	}
+	&:active {
+		background-color: $bg2;
+	}
+}

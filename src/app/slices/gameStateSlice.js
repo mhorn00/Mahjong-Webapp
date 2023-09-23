@@ -1,23 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 import Tiles from '../enums/TilesEnum.js';
 
 const initialState = {
 	Hand: [
-		Tiles.ThreeBam,
-		Tiles.DragonDot,
-		Tiles.Joker,
-		Tiles.NineBam,
 		Tiles.OneBam,
-		Tiles.OneBam,
-		Tiles.FiveDot,
-		Tiles.West,
-		Tiles.Flower,
-		Tiles.FiveDot,
-		Tiles.TwoCrack,
 		Tiles.TwoBam,
-		Tiles.Blank
+		Tiles.ThreeBam,
+		Tiles.FourBam,
+		Tiles.FiveBam,
+		Tiles.SixBam,
+		Tiles.SevenBam,
+		Tiles.EightBam,
+		Tiles.NineBam,
+		Tiles.Blank,
 	],
-	Discard: [Tiles.DragonBam],
+	Discard: [],
 	OpponentHands: {
 		Opponent1: [],
 		Opponent2: [],
@@ -35,6 +32,7 @@ export const gameStateSlice = createSlice({
 });
 
 const setTilesFunc = function (state, action) {
+	console.log(action.payload.Tiles);
 	state.Hand = action.payload.Tiles;
 };
 
@@ -42,5 +40,5 @@ const addDiscardFunc = function (state, action) {
 	state.Discard.push(action.payload.Tile);
 };
 
-export const { setTiles, addDiscard } = gameStateSlice.actions;
+export const {setTiles, addDiscard} = gameStateSlice.actions;
 export default gameStateSlice.reducer;

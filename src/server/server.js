@@ -26,7 +26,7 @@ webpackDevInstance.waitUntilValid(() => {
 	app.use(express.static(distPath));
 	app.use('/assets', express.static(distAssetsPath));
 
-	app.get('/api', function (req, res) {
+	app.get('/api/createRoom', function (req, res) {
 		res.send('Hello World!');
 	});
 

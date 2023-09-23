@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {PanelResizeHandle} from 'react-resizable-panels';
 
 const OpponentDisplay = function ({className}) {
@@ -9,4 +10,7 @@ const OpponentDisplay = function ({className}) {
 	);
 };
 
+OpponentDisplay.propTypes = {
+	className: PropTypes.string,
+};
 export default OpponentDisplay;
