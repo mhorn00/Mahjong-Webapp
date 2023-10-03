@@ -34,15 +34,15 @@ const HandDisplay = function ({className}) {
 
 	
 
-	const singleTile = (Tile, Index, parentWidth) => {
+	const singleTile = (Tile, Index, /* parentWidth */) => {
 		const TileWidthPercent = 5;
-		return <MahjongTile Tile={Tile} width={(TileWidthPercent / 100) * parentWidth} index={Index} moveTile={moveTile} key={Index}/>;
+		return <MahjongTile Tile={Tile} /* width={(TileWidthPercent / 100) * parentWidth} */ index={Index} moveTile={moveTile} key={Index}/>;
 	};
 
 	return (
 		<div className={className}>
 			<div ref={TileContainerRef} className='Hand'>
-				{Hand.map((Tile, i) => singleTile(Tile, i, parentWidth))}
+				{Hand.map((Tile, i) => singleTile(Tile, i, /* parentWidth */))}
 			</div>
 		</div>
 	);

@@ -17,11 +17,11 @@ const GameContainer = function ({className}) {
 				<OpponentDisplay className='OpponentContainer' />
 				<Panel className='PlayContainer' defaultSize={40}>
 					<PanelGroup autoSaveId='PlayGroup' direction='horizontal'>
-						<Panel className='CardContainer' defaultSize={20}>
+						<Panel className='CardContainer'>
 							<CardArea className='CardContainer' />
 						</Panel>
 						<ResizeHandle />
-						<Panel className='HandContainer' defaultSize={80}>
+						<Panel className='HandContainer' >
 							<HandDisplay className='HandContainer' />
 						</Panel>
 					</PanelGroup>

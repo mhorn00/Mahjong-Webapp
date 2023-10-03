@@ -1,19 +1,28 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
+import {useNavigate} from 'react-router-dom';
+import {useLazyCreateRoomQuery} from '../store';
 import TopBar from '../components/PageComponents/TopBar';
 import './HomePage.scss';
-import { useDispatch } from 'react-redux';
-import {createNewRoomThunk} from '../slices/mainStateSlice';
-import {ItemTypes} from '../enums/ItemTypes';
+import {setRoomId} from '../slices/gameStateSlice';
 
 const HomePage = () => {
 	const dispatch = useDispatch();
+	const nav = useNavigate();
+	const [trigger] = useLazyCreateRoomQuery();
 
-	const handleCreateGame = () => {
+	const handleCreateGame = async () => {
 		console.log('Create Game');
-		//dispatch(createNewRoomThunk());
+		trigger()
+			.then((res) => {
+				console.log(res);
+				dispatch(setRoomId(res.data));
+				nav(`/game/${res.data}`);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
-
-	console.log(ItemTypes);
 
 	return (
 		<div className='RootContainer'>

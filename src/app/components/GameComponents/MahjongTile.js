@@ -1,23 +1,31 @@
 import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
-import TileSheet from '../../tiles/DevTiles.png';
 import {ItemTypes} from '../../enums/ItemTypes';
 import {useDrag, useDrop} from 'react-dnd';
+import OneBamImg from '../../tiles/Tiles/OneBam.png';
+
+const TileImages = require.context('../../tiles/Tiles', true, /\.png$/);
+const TileImageMap = {};
+TileImages.keys().forEach((key) => {
+	TileImageMap[key.replace('./', '').replace('.png', '')] = TileImages(key);
+});
 
 const TileImageWidth = 302;
 const TileImageHeight = 392;
 const TileColCount = 9;
 const TileRowCount = 5;
 
-const MahjongTile = function ({Tile, width, index, moveTile}) {
-	const ScaleFactor = TileImageWidth / width;
+const MahjongTile = function ({Tile, /* width, */ index, moveTile}) {
+	//const ScaleFactor = TileImageWidth / width;
 	const tileStyle = {
-		backgroundImage: `url(${TileSheet})`,
-		backgroundPosition: `-${(Tile.Index.x * TileImageWidth) / ScaleFactor}px -${(Tile.Index.y * TileImageHeight) / ScaleFactor}px`,
-		backgroundSize: `${(TileColCount * TileImageWidth) / ScaleFactor}px ${(TileRowCount * TileImageHeight) / ScaleFactor}px`,
+		backgroundImage: 'url(../../tiles/Tiles/OneBam.png)',
+		backgroundPosition: '1px, 1px',
 		backgroundRepeat: 'no-repeat',
-		width: `${TileImageWidth / ScaleFactor}px`,
-		height: `${TileImageHeight / ScaleFactor}px`,
+		position: 'absolute',
+		display: 'inline',
+		width: '300px',
+		height: '390px',
+		padding: '5px',
 		opacity: isDragging ? 0 : 1,
 	};
 
@@ -72,12 +80,17 @@ const MahjongTile = function ({Tile, width, index, moveTile}) {
 		}),
 	});
 	drag(drop(ref));
-	return <div ref={ref} style={tileStyle} data-handler-id={handlerId} />;
+	return (
+		/* <div ref={ref} data-handler-id={handlerId}>
+			<img style={tileStyle} width={'100px'} height={'130px'} />
+		</div> */
+		<img src='../../tiles/Tiles/OneBam.png' width={'100px'} height={'130px'} />
+	);
 };
 
 MahjongTile.propTypes = {
 	Tile: PropTypes.object.isRequired,
-	width: PropTypes.number.isRequired,
+	/* width: PropTypes.number.isRequired, */
 	index: PropTypes.any,
 	moveTile: PropTypes.any,
 };

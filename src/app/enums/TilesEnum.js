@@ -2,6 +2,7 @@ import Suits from './SuitEnum.js';
 
 const Tiles = {
 	OneBam: {
+		Name: 'OneBam',
 		Suit: Suits.Bam,
 		Value: '1',
 		Index: {
@@ -10,6 +11,7 @@ const Tiles = {
 		},
 	},
 	TwoBam: {
+		Name: 'TwoBam',
 		Suit: Suits.Bam,
 		Value: '2',
 		Index: {
@@ -18,6 +20,7 @@ const Tiles = {
 		},
 	},
 	ThreeBam: {
+		Name: 'ThreeBam',
 		Suit: Suits.Bam,
 		Value: '3',
 		Index: {
@@ -26,6 +29,7 @@ const Tiles = {
 		},
 	},
 	FourBam: {
+		Name: 'FourBam',
 		Suit: Suits.Bam,
 		Value: '4',
 		Index: {
@@ -34,6 +38,7 @@ const Tiles = {
 		},
 	},
 	FiveBam: {
+		Name: 'FiveBam',
 		Suit: Suits.Bam,
 		Value: '5',
 		Index: {
@@ -42,6 +47,7 @@ const Tiles = {
 		},
 	},
 	SixBam: {
+		Name: 'SixBam',
 		Suit: Suits.Bam,
 		Value: '6',
 		Index: {
@@ -50,6 +56,7 @@ const Tiles = {
 		},
 	},
 	SevenBam: {
+		Name: 'SevenBam',
 		Suit: Suits.Bam,
 		Value: '7',
 		Index: {
@@ -58,6 +65,7 @@ const Tiles = {
 		},
 	},
 	EightBam: {
+		Name: 'EightBam',
 		Suit: Suits.Bam,
 		Value: '8',
 		Index: {
@@ -66,6 +74,7 @@ const Tiles = {
 		},
 	},
 	NineBam: {
+		Name: 'NineBam',
 		Suit: Suits.Bam,
 		Value: '9',
 		Index: {
@@ -74,6 +83,7 @@ const Tiles = {
 		},
 	},
 	DragonBam: {
+		Name: 'DragonBam',
 		Suit: Suits.Bam,
 		Value: 'Dragon',
 		Index: {
@@ -290,6 +300,7 @@ const Tiles = {
 		},
 	},
 	Blank: {
+		Name: 'Blank',
 		Suit: Suits.None,
 		Value: 'Blank',
 		Index: {

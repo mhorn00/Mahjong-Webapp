@@ -1,4 +1,5 @@
 const path = require('path');
+const {v4: uuidv4} = require('uuid');
 const express = require('express');
 const app = express();
 
@@ -27,7 +28,8 @@ webpackDevInstance.waitUntilValid(() => {
 	app.use('/assets', express.static(distAssetsPath));
 
 	app.get('/api/createRoom', function (req, res) {
-		res.send('Hello World!');
+		const roomId = uuidv4();
+		res.json({roomId});
 	});
 
 	//serve react app for any other path
@@ -36,6 +38,6 @@ webpackDevInstance.waitUntilValid(() => {
 	});
 
 	app.listen(PORT, function () {
-		console.log('Server Started');
+		console.log('Server Started on port ' + PORT);
 	});
 });

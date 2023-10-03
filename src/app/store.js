@@ -3,12 +3,13 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import gameStateReducer from './slices/gameStateSlice.js';
 import mainStateReducer from './slices/mainStateSlice.js';
 
-export const mainApi = createApi({
-	reducerPath: 'mainApi',
+const mainApi = createApi({
+	reducerPath: 'ApiState',
 	baseQuery: fetchBaseQuery({baseUrl: '/api/'}),
 	endpoints: (builder) => ({
 		createRoom: builder.query({
-			query: () => '/api/createRoom',
+			query: () => 'createRoom/',
+			transformResponse: (res) => res.roomId,
 		}),
 	}),
 });
@@ -16,14 +17,12 @@ export const mainApi = createApi({
 const store = configureStore({
 	reducer: {
 		GameState: gameStateReducer,
-		MainState: mainStateReducer,
+		[mainApi.reducerPath]: mainApi.reducer,
 	},
 	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware({
-			thunk: {
-				extraArgument: {},
-			},
-		}),
+		getDefaultMiddleware().concat(mainApi.middleware),
 });
 
 export default store;
+export { mainApi };
+export const {useLazyCreateRoomQuery} = mainApi;
